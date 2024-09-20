@@ -3,12 +3,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var yearRouter = require('./routes/year')
 
 var app = express();
+
 const cors = require('cors');
 app.use(cors());
 app.use(logger('dev'));
@@ -20,4 +20,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/year', yearRouter)
+
 module.exports = app;
